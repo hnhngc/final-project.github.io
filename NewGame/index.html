@@ -16,7 +16,7 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-image: url('./Asset/background_img.jpg');
+            background-image: url('Asset/background_img.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -299,7 +299,7 @@
             const playerName = playerNameInput.value.trim();
             if (playerName) {
                 localStorage.setItem('playerName', playerName);
-                window.location.href = './newGame.html';
+                window.location.href = 'newGame.html';
             }
         });
 
@@ -309,7 +309,7 @@
             const savedGame = JSON.parse(localStorage.getItem('savedGame'));
             if (savedGame && savedGame.playerName === playerName) {
                 localStorage.setItem('playerName', playerName);
-                window.location.href = './newGame.html?continue=true';
+                window.location.href = 'newGame.html?continue=true';
             }
         });
 
