@@ -262,7 +262,6 @@
             <button class="close-btn">&times;</button>
             <h2>Bảng Xếp Hạng</h2>
             <ul class="leaderboard-list">
-                <!-- Leaderboard items will be populated by JavaScript -->
             </ul>
         </div>
     </div>
@@ -300,7 +299,7 @@
             const playerName = playerNameInput.value.trim();
             if (playerName) {
                 localStorage.setItem('playerName', playerName);
-                window.location.href = 'newGame.html';
+                window.location.href = './NewGame/newGame.html';
             }
         });
 
@@ -310,7 +309,7 @@
             const savedGame = JSON.parse(localStorage.getItem('savedGame'));
             if (savedGame && savedGame.playerName === playerName) {
                 localStorage.setItem('playerName', playerName);
-                window.location.href = 'newGame.html?continue=true';
+                window.location.href = './NewGame/newGame.html?continue=true';
             }
         });
 
@@ -427,7 +426,6 @@
             }
         });
 
-        // ...rest of the existing code...
     </script>
 </body>
 
