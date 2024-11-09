@@ -4,8 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trang chính</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        button:active {
+            background-color: #004085;
+            transform: translateY(0);
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+    </style>
 </head>
 <body>
-    <button onclick="window.location.href='NewGame%202/index.html'">Chạy Game</button>
+    <div class="container">
+        <h1>Trang chính</h1>
+        <button onclick="window.location.href='NewGame%202/index.html'">Chạy Game</button>
+    </div>
 </body>
 </html>
