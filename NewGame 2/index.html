@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trò Chơi Phân Loại Rác</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;500;600&display=swap');
 
         * {
             margin: 0;
@@ -20,6 +20,7 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+            background-attachment: fixed;
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -28,13 +29,12 @@
             margin: 0;
             color: #333;
         }
-        
 
         .container {
             text-align: center;
             background-color: rgba(255, 255, 255, 0.95);
-            padding: 40px;
-            border-radius: 20px;
+            padding: 2.5rem;
+            border-radius: 1.25rem;
             box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
             width: 100%;
             max-width: 480px;
@@ -49,24 +49,25 @@
 
         h1 {
             color: #007A8C;
-            font-size: 3em;
-            margin-bottom: 40px;
-            letter-spacing: 1.5px;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            letter-spacing: 0.05em;
             text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+            font-weight: 600;
         }
 
         .input-container {
             position: relative;
-            margin-bottom: 30px;
+            margin-bottom: 1.875rem;
             width: 100%;
         }
 
         .input-container input {
             width: 100%;
-            padding: 15px 20px;
-            font-size: 16px;
+            padding: 1rem 1.25rem;
+            font-size: 1rem;
             border: 2px solid #ddd;
-            border-radius: 12px;
+            border-radius: 0.75rem;
             outline: none;
             transition: all 0.3s;
             background: white;
@@ -79,26 +80,29 @@
 
         .input-container label {
             position: absolute;
-            left: 15px;
-            top: -10px;
+            left: 1rem;
+            top: -0.625rem;
             background: white;
-            padding: 0 8px;
+            padding: 0 0.5rem;
             color: #666;
-            font-size: 14px;
+            font-size: 0.875rem;
             transition: all 0.3s;
+            font-weight: 500;
         }
 
         .btn {
             width: 100%;
-            padding: 15px;
+            padding: 1rem;
             border: none;
-            border-radius: 12px;
-            font-size: 18px;
+            border-radius: 0.75rem;
+            font-size: 1.125rem;
             font-weight: 500;
             cursor: pointer;
             transition: all 0.3s;
-            margin-bottom: 15px;
+            margin-bottom: 1rem;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
         }
 
         .btn-primary {
@@ -110,6 +114,7 @@
             background-color: #cccccc;
             cursor: not-allowed;
             box-shadow: none;
+            opacity: 0.7;
         }
 
         .btn-secondary {
@@ -125,88 +130,6 @@
 
         .btn-primary:not(:disabled):hover {
             background-color: #E64A19;
-        }
-
-        /* Overlay styles */
-        .overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.7);
-            z-index: 1000;
-            animation: fadeIn 0.3s ease;
-        }
-
-        .leaderboard {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: white;
-            padding: 30px;
-            border-radius: 20px;
-            width: 90%;
-            max-width: 500px;
-            max-height: 80vh;
-            overflow-y: auto;
-        }
-
-        .leaderboard h2 {
-            color: #007A8C;
-            margin-bottom: 20px;
-            text-align: center;
-            font-size: 24px;
-        }
-
-        .leaderboard-list {
-            list-style: none;
-        }
-
-        .leaderboard-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px;
-            border-bottom: 1px solid #eee;
-            transition: background 0.3s;
-        }
-
-        .leaderboard-item:hover {
-            background: #f8f9fa;
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: none;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-            color: #666;
-            transition: color 0.3s;
-        }
-
-        .close-btn:hover {
-            color: #FF5722;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        .btn {
-            position: relative;
-            overflow: hidden;
         }
 
         .btn::after {
@@ -227,17 +150,135 @@
             height: 300px;
         }
 
+        /* Overlay styles */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            animation: fadeIn 0.3s ease;
+            backdrop-filter: blur(4px);
+        }
+
+        .leaderboard {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 2rem;
+            border-radius: 1.25rem;
+            width: 90%;
+            max-width: 500px;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .leaderboard h2 {
+            color: #007A8C;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .leaderboard-list {
+            list-style: none;
+        }
+
+        .leaderboard-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .leaderboard-item:hover {
+            background: #f8f9fa;
+            transform: translateX(5px);
+        }
+
+        .btn-home {
+            text-decoration: none;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #666;
+            transition: color 0.3s, transform 0.2s;
+            width: 2rem;
+            height: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .close-btn:hover {
+            color: #FF5722;
+            transform: rotate(90deg);
+            background-color: rgba(255, 87, 34, 0.1);
+        }
+
         .leaderboard-item.highlight {
             background-color: #fff3e0;
             animation: glow 1s ease-in-out infinite alternate;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
         @keyframes glow {
             from {
                 box-shadow: 0 0 5px #FF5722;
             }
+
             to {
                 box-shadow: 0 0 15px #FF5722;
+            }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 480px) {
+            .container {
+                padding: 1.5rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .btn {
+                font-size: 1rem;
+                padding: 0.875rem;
+            }
+
+            .leaderboard {
+                padding: 1.5rem;
             }
         }
     </style>
@@ -255,6 +296,8 @@
         <button class="btn btn-primary" id="startGame" disabled>Bắt đầu chơi</button>
         <button class="btn btn-primary" id="countinue" disabled>Tiếp tục game</button>
         <button class="btn btn-secondary" id="leaderboard">Bảng xếp hạng</button>
+        <a href="https://front-end-web5.vercel.app/" id="homeButton">Về trang chủ</a>
+        
     </div>
 
     <div class="overlay" id="leaderboardOverlay">
@@ -280,7 +323,7 @@
             const savedGame = localStorage.getItem('savedGame');
             const currentPlayerName = document.getElementById('playerName').value.trim();
             const continueBtn = document.getElementById('countinue');
-            
+
             if (savedGame && currentPlayerName) {
                 const gameData = JSON.parse(savedGame);
                 continueBtn.disabled = !(gameData.playerName === currentPlayerName);
@@ -320,7 +363,7 @@
             const savedGames = localStorage.getItem('completedGames');
             const lastScore = localStorage.getItem('lastScore');
             const currentPlayer = localStorage.getItem('playerName');
-            
+
             if (savedGames) {
                 const games = JSON.parse(savedGames);
                 Object.entries(games).forEach(([playerName, gameData]) => {
@@ -400,7 +443,7 @@
         // Update these functions
 
         // Check for saved game when page loads
-        window.onload = function() {
+        window.onload = function () {
             // Try to restore last used player name
             const lastPlayerName = localStorage.getItem('playerName');
             if (lastPlayerName) {
@@ -408,7 +451,7 @@
                 checkSavedGame();
                 startGameBtn.disabled = false;
             }
-            
+
             // Check URL parameters for leaderboard
             if (window.location.search.includes('showLeaderboard=true')) {
                 loadLeaderboard();
